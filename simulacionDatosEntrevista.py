@@ -23,12 +23,12 @@ def generarEntrevista(numeroEntrevistas):
             "fecha": fecha.strftime("%y/%m/%d"),
             "entrevistador" : random.choice(listaEntrevistador),
             "comentarios" : random.choice(listaComentarios),
-            "calificacion" : random.randint(0,5),
+            "calificacion" : random.randint(1,5),
             "Aprobado" : random.choice(boolean)
 
         }
         Entrevistas.append(Entrevista)
-    return Entrevistas
+    return(Entrevistas)
 
 
 generarEntrevista(10)
