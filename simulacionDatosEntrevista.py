@@ -27,9 +27,43 @@ def generarEntrevista(numeroEntrevistas):
             "Aprobado" : random.choice(boolean)
 
         }
+
+        #Inyectando errores controlados
+
+        probabilidadError=random.random()
+
+        if probabilidadError<0.1:
+            Entrevista["entrevistador"]="123 " + Entrevista["entrevistador"]+"asdwawsdwa "
+        elif probabilidadError<0.2:
+            Entrevista["comentarios"]=random.choice(["queso", "aguacate", "peyeton"])
+        elif probabilidadError<0.3:
+            Entrevista["id_entrevistador"]=random.choice([-1,-10,-0,0,-5])
+        elif probabilidadError<0.4:
+            Entrevista["calificacion"]=random.choice([1,-10000,"sisas","epaLaArepa","aguadulce"])
+        elif probabilidadError<0.5:
+            Entrevista["fecha"]=fechaInicio.strftime("%d/%m")
+        elif probabilidadError<0.6:
+            Entrevista["Aprobado"]=None
+        elif probabilidadError<0.7:
+            Entrevista["Aprobado"]=random.choice(["aguapanela", 1234567890])
+        elif probabilidadError<0.8:
+            Entrevista["id_entrevistador"]=None
+        elif probabilidadError<0.9:
+            Entrevista["entrevistador"]=Entrevista["entrevistador"]+Entrevista["entrevistador"]
+
+        
+
         Entrevistas.append(Entrevista)
-    return(Entrevistas)
+    
+    #simulacion de datos duplicados
+
+    if len(Entrevistas)>=2:
+        Entrevistas.append(Entrevistas[0].copy())
 
 
-generarEntrevista(10)
+
+    print(Entrevistas)
+
+
+generarEntrevista(2)
 
