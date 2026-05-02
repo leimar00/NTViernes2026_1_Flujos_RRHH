@@ -36,8 +36,29 @@ def generar_servicio(numeroServicios):
             "abierta_cerrada_en_pausa": random.choice(listaEstados),
             "presupuestoSalario": random.choice(listaSalarios),
             "fecha_vacante": fecha_vacante.strftime("%Y-%m-%d")     
-        }   
-        vacantes.append(vacante) 
+        }
+        
+        #Inyectando errores controlados en nuestra base de datos
+        #Proceso estocástico
+        probabilidadError = random.random()
+
+        if probabilidadError <0.1:
+            vacante["titulo_log"] = " "+vacante["titulo_log"]+" "
+        elif probabilidadError < 0.2:
+            vacante["descripcion"] = None
+        elif probabilidadError < 0.3:
+            vacante["id"] = random.choice([-1,-10,0])
+        elif probabilidadError < 0.4:
+            vacante["presupuestoSalario"] = random.choice([1, -10000, "sisas"])
+        elif probabilidadError < 0.5:
+            vacante["presupuestoSalario"] = str(vacante["presupuestoSalario"]) + f"{random.choice(["f","r","t"])}"
+        elif probabilidadError < 0.6:
+            vacante["titulo_log"] = None
+        elif probabilidadError < 0.7:
+            vacante["id"] = None
+        vacantes.append(vacante)
+        if len(vacantes) >= 2:
+            vacantes.append(vacantes[0].copy())
     
     return vacantes
 
