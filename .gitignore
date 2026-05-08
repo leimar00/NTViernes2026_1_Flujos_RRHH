@@ -1,0 +1,13 @@
+# Entorno virtual (el nombre de tu carpeta)
+venv/
+
+# Archivos de caché de Python (basura que genera el sistema)
+__pycache__/
+*.py[cod]
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Archivos de sistema
+.DS_Store

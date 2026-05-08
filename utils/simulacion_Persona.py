@@ -47,4 +47,3 @@ def generar_Personas(numPersonas):
 
 
 print(generar_Personas(5))
-
