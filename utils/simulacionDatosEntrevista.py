@@ -20,7 +20,7 @@ def generarEntrevista(numeroEntrevistas):
 
         Entrevista={
             "id_entrevistador" : random.randint(0,100),
-            "fecha": fecha.strftime("%y/%m/%d"),
+            "fecha": fecha.strftime("%d/%m/%Y"),
             "entrevistador" : random.choice(listaEntrevistador),
             "comentarios" : random.choice(listaComentarios),
             "calificacion" : random.randint(1,5),
@@ -33,13 +33,13 @@ def generarEntrevista(numeroEntrevistas):
         probabilidadError=random.random()
 
         if probabilidadError<0.1:
-            Entrevista["entrevistador"]="123 " + Entrevista["entrevistador"]+"asdwawsdwa "
+            Entrevista["entrevistador"]=" " + Entrevista["entrevistador"]
         elif probabilidadError<0.2:
             Entrevista["comentarios"]=random.choice(["queso", "aguacate", "peyeton"])
         elif probabilidadError<0.3:
             Entrevista["id_entrevistador"]=random.choice([-1,-10,-0,0,-5])
         elif probabilidadError<0.4:
-            Entrevista["calificacion"]=random.choice([1,-10000,"sisas","epaLaArepa","aguadulce"])
+            Entrevista["calificacion"]=random.choice([-10000,0, "sisas", "arepa"])
         elif probabilidadError<0.5:
             Entrevista["fecha"]=fechaInicio.strftime("%d/%m")
         elif probabilidadError<0.6:
@@ -62,7 +62,7 @@ def generarEntrevista(numeroEntrevistas):
 
 
 
-    print(Entrevistas)
+    return(Entrevistas)
 
 
 generarEntrevista(2)
