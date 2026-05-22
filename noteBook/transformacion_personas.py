@@ -1,6 +1,21 @@
 import pandas as pd
+from datetime import datetime
 
 def transformar_datos_persona(data_frame_limpio):
+    
+    # Calcular edad a partir de fecha_de_nacimiento
+    data_frame_limpio = data_frame_limpio.copy()
+    data_frame_limpio["edad"] = (
+        (datetime.now() - pd.to_datetime(data_frame_limpio["fecha_de_nacimiento"])).dt.days // 365
+    )
+    
+    # Calcular rango_edad basado en la edad
+    data_frame_limpio["rango_edad"] = pd.cut(
+        data_frame_limpio["edad"],
+        bins=[0, 25, 35, 45, 55, 150],
+        labels=["18-25", "26-35", "36-45", "46-55", "56+"],
+        right=False
+    )
 
     # ── FILTRO 1 ──────────────────────────────────────────────────
     # Residentes en Medellín    
