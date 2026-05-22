@@ -38,7 +38,8 @@ from noteBook.descripcion_persona import (
     describir_estructura as desc_est_per, 
     describir_estadisticas as desc_estat_per
 )
-# Nota: Si necesitas integrar la transformación de personas de él más adelante, se importaría desde noteBook.transformacion_personas
+# AGREGADO: Importación directa de la transformación de personas
+from noteBook.transformacion_personas import transformar_datos_persona
 
 # Módulo Procesos de Selección
 from utils.simulacion_proceso_seleccion import generar_procesos
@@ -106,12 +107,16 @@ def main():
         [describir_estructura_aspirantes, estadisticas_aspirantes, analizar_categoricas_aspirantes, analizar_fechas_aspirantes]
     )
     
-    # 3. Personas
+    # 3. Personas (Agregada tu transformación en la lista de descripción/reporte)
     registros_totales += ejecutar_modulo(
         "Personas", 
         generar_Personas, 
         limpiar_personas, 
-        [desc_est_per, desc_estat_per]
+        [
+            desc_est_per, 
+            desc_estat_per,
+            transformar_datos_persona  # <-- Agregada igual que la tuya
+        ]
     )
     
     # 4. Procesos de Selección
