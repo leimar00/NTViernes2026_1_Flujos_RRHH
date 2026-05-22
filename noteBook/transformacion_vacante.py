@@ -4,7 +4,7 @@ def transformar_datos_vacante(data_frame_limpio):
     resultados = {}
 
     # ==========================================================
-    # FILTRO 1: Vacantes abiertas
+    # FILTRO 1: Vacantes abiertass
     # ==========================================================
     filtro1 = data_frame_limpio[data_frame_limpio["estadoVacante"] == "ABIERTA"]
     agrupacion1 = filtro1.groupby("fecha_vacante")["id"].count().reset_index(name="cantidad_vacantes")
