@@ -17,11 +17,15 @@ def generar_Personas(numPersonas):
 
     fechaPivote = datetime(1970,1,1)
 
+    # Genera N valores únicos garantizados para usar como DNI simulados
+    pool_dni = random.sample(range(100000, 999999), numPersonas)
+
     listaPersonas = []
 
-    for _ in range(numPersonas):
+    for i in range(numPersonas):
         persona= {
-            "id_persona" : random.randint(0,20),
+            "id" : i+1,
+            "id_persona" : pool_dni[i],
             "nombreCompleto" : random.choice(listaNombres),
             "email" : random.choice(listaEmails),
             "telefono" : random.choice(listaTelefonos),
@@ -52,7 +56,7 @@ def generar_Personas(numPersonas):
         elif probabilidadError < 0.8:
             persona["fecha_de_nacimiento"] = None
         elif probabilidadError < 0.9:
-            persona["id_persona"] = None
+            persona["id"] = None
 
 
         listaPersonas.append(persona)
