@@ -9,7 +9,7 @@ def describir_estructura(data_frame_limpio):
 
 def describir_estadisticas(data_frame_limpio):
     print("\n****** Estadisticas *******")
-    print(f"{data_frame_limpio[["id_persona"]].describe()}")
+    print(f"{data_frame_limpio[["id"]].describe()}")
 
     # describir las fechas
     print("*** DESCRIPCION DE FECHAS ***")

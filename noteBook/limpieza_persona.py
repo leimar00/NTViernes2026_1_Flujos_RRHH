@@ -11,7 +11,7 @@ def limpiar_simulacion(data_frame):
     #2. convertir columnas numericas
 
     data_frame_limpio["id_persona"]= pd.to_numeric(data_frame_limpio["id_persona"])
-
+    data_frame_limpio["id"]= pd.to_numeric(data_frame_limpio["id"])
 
     #4 eliminar valores invalidos
 
@@ -24,7 +24,7 @@ def limpiar_simulacion(data_frame):
 
 
     # Controlar valores esperados
-    valores_esperados_tipo_documento = ["CC", "CE", "PPT"]
+    valores_esperados_tipo_documento = ["CC", "CE", "PPT", "TI"]
     data_frame_limpio["tipo_documento"] = data_frame_limpio["tipo_documento"].where(
         data_frame_limpio["tipo_documento"].isin(valores_esperados_tipo_documento),
         pd.NA
@@ -66,7 +66,7 @@ def limpiar_simulacion(data_frame):
 
     #3. eliminar filas con nulos en columnas obligatorias
 
-    columnas_obligatorias = ["nombreCompleto", "email", "telefono", "id_persona", "fecha_de_nacimiento", "tipo_documento"]
+    columnas_obligatorias = ["nombreCompleto", "email", "telefono", "id_persona", "fecha_de_nacimiento", "tipo_documento", "id"]
 
     data_frame_limpio = data_frame_limpio.dropna(subset= columnas_obligatorias)
 
