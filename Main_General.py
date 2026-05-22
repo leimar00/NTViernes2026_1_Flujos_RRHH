@@ -1,10 +1,16 @@
+# ============================================================================
+# SISTEMA INTEGRADO DE TALENTO HUMANO - RRHH 2026
+# Líder Técnico: Leimar Henao Zapata
+# Institución: CESDE - Medellín, Colombia
+# ============================================================================
+
 import pandas as pd
 
 # ============================================================================
 # 1. IMPORTACIÓN DE MÓDULOS (Integración de piezas listas)
 # ============================================================================
 
-# Módulo Entrevistas (Tu trabajo - Leimar)
+# Módulo Entrevistas (Tu trabajo - Leimar Henao Zapata)
 from utils.simulacionDatosEntrevista import generarEntrevista
 from noteBook.Limpieza_Entrevista import limpiar_entrevistas
 from noteBook.Descripcion_Entrevista import (
@@ -12,6 +18,8 @@ from noteBook.Descripcion_Entrevista import (
     describir_estadisticas_entrevistas,
     describir_categoricas_entrevistas
 )
+# IMPORTACIÓN CORREGIDA: Apuntando al nuevo archivo en plural
+from noteBook.transformacion_entrevistas import transformar_datos_servicio
 
 # Módulo Aspirantes (Esteban Velandia)
 from utils.aspirantes_simulacion import generar_simulacion_aspirantes
@@ -23,13 +31,14 @@ from noteBook.aspirantes_descripcion import (
     analizar_fechas_aspirantes
 )
 
-# Módulo Personas
+# Módulo Personas (El de tu compañero)
 from utils.simulacion_Persona import generar_Personas
 from noteBook.limpieza_persona import limpiar_simulacion as limpiar_personas
 from noteBook.descripcion_persona import (
     describir_estructura as desc_est_per, 
     describir_estadisticas as desc_estat_per
 )
+# Nota: Si necesitas integrar la transformación de personas de él más adelante, se importaría desde noteBook.transformacion_personas
 
 # Módulo Procesos de Selección
 from utils.simulacion_proceso_seleccion import generar_procesos
@@ -42,7 +51,7 @@ from noteBook.descripcion_proceso_seleccion import (
 )
 
 # ============================================================================
-# 2. ORQUESTADOR DE MÓDULOS
+# 2. ORQUESTADOR DE MÓDULOS (Tu diseño genérico)
 # ============================================================================
 
 def ejecutar_modulo(nombre, func_sim, func_limp, funcs_desc):
@@ -52,14 +61,10 @@ def ejecutar_modulo(nombre, func_sim, func_limp, funcs_desc):
     print("="*50)
     
     try:
-        # Generación de datos (Basado en tu requerimiento de 50 registros)
-        datos = func_sim(20)
+        datos = func_sim(50)
         df = pd.DataFrame(datos)
-        
-        # Limpieza de datos (Mantenimiento de estructura original de los compañeros)
         df_limpio = func_limp(df)
         
-        # Ejecución de TODAS las descripciones solicitadas
         for f_desc in funcs_desc:
             f_desc(df_limpio)
             
@@ -74,21 +79,26 @@ def ejecutar_modulo(nombre, func_sim, func_limp, funcs_desc):
 
 def main():
     print("\n" + "#"*60)
-    print("   SISTEMA INTEGRADO DE TALENTO HUMANO - RRHH 2026")
-    print("   Líder Técnico: Leimar henao zapata")
+    print("   SISTEMA INTEGRADO DE TALENTO HUMANO - CESDE 2026")
+    print("   Líder Técnico: Leimar Henao Zapata")
     print("#"*60)
 
     registros_totales = 0
 
-    # 1. Entrevistas (Análisis categórico completo, sin fechas)
+    # 1. Entrevistas (Módulo propio - Perfectamente acoplado en plural)
     registros_totales += ejecutar_modulo(
         "Entrevistas", 
         generarEntrevista, 
         limpiar_entrevistas, 
-        [describir_estructura_entrevistas, describir_estadisticas_entrevistas, describir_categoricas_entrevistas]
+        [
+            describir_estructura_entrevistas, 
+            describir_estadisticas_entrevistas, 
+            describir_categoricas_entrevistas,
+            transformar_datos_servicio  
+        ]
     )
     
-    # 2. Aspirantes (Esteban - Incluye categorías y fechas)
+    # 2. Aspirantes
     registros_totales += ejecutar_modulo(
         "Aspirantes", 
         generar_simulacion_aspirantes, 
@@ -96,7 +106,7 @@ def main():
         [describir_estructura_aspirantes, estadisticas_aspirantes, analizar_categoricas_aspirantes, analizar_fechas_aspirantes]
     )
     
-    # 3. Personas (Estructura y estadísticas)
+    # 3. Personas
     registros_totales += ejecutar_modulo(
         "Personas", 
         generar_Personas, 
@@ -104,7 +114,7 @@ def main():
         [desc_est_per, desc_estat_per]
     )
     
-    # 4. Procesos de Selección (Análisis completo)
+    # 4. Procesos de Selección
     registros_totales += ejecutar_modulo(
         "Procesos de Selección", 
         generar_procesos, 
