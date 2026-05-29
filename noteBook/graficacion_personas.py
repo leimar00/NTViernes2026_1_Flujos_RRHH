@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import os
 
-RUTA_ASSETS = os.path.join(os.path.dirname(__file__), "..", "..", "mi-app-react", "src", "assets", "graficos")
+
+RUTA_ASSETS = os.path.join(os.path.dirname(__file__), "..", "..", "RRHH-FRONT", "src", "assets", "graficos_personas")
 
 
 def crear_ruta_si_no_existe(ruta_destino):
@@ -62,3 +63,4 @@ def graficar_torta(datos_agrupados, columna_etiquetas, columna_valores,
     figura.savefig(ruta_completa)
     plt.close(figura)
     print(f"Gráfico de torta guardado en: {ruta_completa}")
+

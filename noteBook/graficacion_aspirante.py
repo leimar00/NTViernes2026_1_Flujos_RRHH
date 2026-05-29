@@ -5,7 +5,7 @@ RUTA_ASSETS = os.path.join(
     os.path.dirname(__file__),
     "..",
     "..",
-    "mi-app-react",
+    "RRHH-FRONT",
     "src",
     "assets",
     "graficos_aspirantes"
