@@ -65,11 +65,11 @@ from noteBook.transformacion_proceso_seleccion import transformar_procesos
 # ============================================================================
 # ── 🛠️ SECCIÓN DE IMPORTS DE GRÁFICOS CORREGIDA (NOMBRES EXACTOS) ──
 # ============================================================================
-from noteBook import graficas_entrevista as g_ent         # Archivo: noteBook/graficas_entrevista.py
-from noteBook import grafica_vacantes as g_vac           # Archivo: noteBook/grafica_vacantes.py
-from noteBook import grafica_aspirantes as g_asp         # Archivo: noteBook/grafica_aspirantes.py
-from noteBook import grafica_personas as g_per           # Archivo: noteBook/grafica_personas.py
-from noteBook import grafica_proceso_seleccion as g_sel  # Archivo: noteBook/grafica_proceso_seleccion.py
+from noteBook import graficacion_entrevista as g_ent         # Archivo: noteBook/graficacion_entrevista.py
+from noteBook import graficacion_vacantes as g_vac           # Archivo: noteBook/graficacion_vacantes.py
+from noteBook import graficacion_aspirante as g_asp         # Archivo: noteBook/graficacion_aspirante.py
+from noteBook import graficacion_personas as g_per           # Archivo: noteBook/graficacion_personas.py
+from noteBook import graficacion_proceso_seleccion as g_sel  # Archivo: noteBook/graficacion_proceso_seleccion.py
 
 
 # ============================================================================

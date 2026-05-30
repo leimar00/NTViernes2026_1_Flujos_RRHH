@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Ruta típica de la carpeta assets en un proyecto React con Vite
-RUTA_ASSETS = os.path.join(os.path.dirname(__file__), "..", "..", "mi-app-react", "src", "assets", "graficos")
+RUTA_ASSETS = os.path.join(os.path.dirname(__file__), "..", "..", "RRHH-FRONT", "src", "assets", "graficos_proceso_seleccion")
 
 
 def crear_ruta_si_no_existe(ruta_destino):
